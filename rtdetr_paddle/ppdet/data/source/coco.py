@@ -226,7 +226,7 @@ class COCODataSet(DetDataset):
                 # TODO: remove load_semantic
                 if self.load_semantic and 'semantic' in self.data_fields:
                     seg_path = os.path.join(self.dataset_dir, 'stuffthingmaps',
-                                            'train2017', im_fname[:-3] + 'png')
+                                            'train201', im_fname[:-3] + 'png')
                     coco_rec.update({'semantic': seg_path})
 
             logger.debug('Load file: {}, im_id: {}, h: {}, w: {}.'.format(
@@ -527,7 +527,7 @@ class SemiCOCODataSet(COCODataSet):
                 # TODO: remove load_semantic
                 if self.load_semantic and 'semantic' in self.data_fields:
                     seg_path = os.path.join(self.dataset_dir, 'stuffthingmaps',
-                                            'train2017', im_fname[:-3] + 'png')
+                                            'train201', im_fname[:-3] + 'png')
                     coco_rec.update({'semantic': seg_path})
 
             logger.debug('Load file: {}, im_id: {}, h: {}, w: {}.'.format(

@@ -60,7 +60,7 @@ DATASETS = {
         (
             'http://images.cocodataset.org/annotations/annotations_trainval2017.zip',
             'f4bbac642086de4f52a3fdda2de5fa2c', ),
-    ], ["annotations", "train2017", "val2017"]),
+    ], ["annotations", "train201", "val2017"]),
     'voc': ([
         (
             'http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar',

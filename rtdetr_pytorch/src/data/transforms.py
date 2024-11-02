@@ -15,7 +15,7 @@ import torchvision.transforms.v2.functional as F
 from PIL import Image 
 from typing import Any, Dict, List, Optional
 
-from src.core import register, GLOBAL_CONFIG
+from .src.core import register, GLOBAL_CONFIG
 
 
 __all__ = ['Compose', ]

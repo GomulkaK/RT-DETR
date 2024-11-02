@@ -1,4 +1,3 @@
-task: detection
 
 num_classes: 80
 remap_mscoco_category: True
@@ -9,6 +8,7 @@ train_dataloader:
     type: CocoDetection
     img_folder: ./dataset/coco/train2017/
     ann_file: ./dataset/coco/annotations/instances_train2017.json
+
     transforms:
       type: Compose
       ops: ~

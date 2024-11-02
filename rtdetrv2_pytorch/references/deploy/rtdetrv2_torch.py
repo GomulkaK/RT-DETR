@@ -8,7 +8,9 @@ import torchvision.transforms as T
 import numpy as np 
 from PIL import Image, ImageDraw
 
-from src.core import YAMLConfig
+
+
+from src.core.yaml_config import YAMLConfig
 
 
 def draw(images, labels, boxes, scores, thrh = 0.6):
@@ -19,7 +21,8 @@ def draw(images, labels, boxes, scores, thrh = 0.6):
         lab = labels[i][scr > thrh]
         box = boxes[i][scr > thrh]
         scrs = scores[i][scr > thrh]
-
+        # import pdb;
+        # pdb.set_trace()
         for j,b in enumerate(box):
             draw.rectangle(list(b), outline='red',)
             draw.text((b[0], b[1]), text=f"{lab[j].item()} {round(scrs[j].item(),2)}", fill='blue', )
@@ -33,7 +36,8 @@ def main(args, ):
     cfg = YAMLConfig(args.config, resume=args.resume)
 
     if args.resume:
-        checkpoint = torch.load(args.resume, map_location='cpu') 
+        checkpoint = torch.load(args.resume, map_location='cpu')
+        print(checkpoint.keys())  # Wyświetl klucze w pliku kontrolnym
         if 'ema' in checkpoint:
             state = checkpoint['ema']['module']
         else:
@@ -56,7 +60,7 @@ def main(args, ):
             return outputs
 
     model = Model().to(args.device)
-
+    print(args.im_file)
     im_pil = Image.open(args.im_file).convert('RGB')
     w, h = im_pil.size
     orig_size = torch.tensor([w, h])[None].to(args.device)

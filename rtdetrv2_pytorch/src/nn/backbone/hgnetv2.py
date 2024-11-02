@@ -413,6 +413,7 @@ class HGNetv2(nn.Module):
             x = stage(x)
             if idx in self.return_idx:
                 outs.append(x)
+
         return outs
 
 

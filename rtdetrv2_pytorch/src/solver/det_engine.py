@@ -107,6 +107,7 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
 def evaluate(model: torch.nn.Module, criterion: torch.nn.Module, postprocessor, data_loader, coco_evaluator: CocoEvaluator, device):
     model.eval()
     criterion.eval()
+    print(type(coco_evaluator))  # Sprawdzi rzeczywisty typ obiektu
     coco_evaluator.cleanup()
 
     metric_logger = MetricLogger(delimiter="  ")

@@ -1,0 +1,34 @@
+task: detection
+
+num_classes: 80
+remap_mscoco_category: True
+
+train_dataloader: 
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    img_folder: C:\Users\Kamil\PycharmProjects\transferLearning\GOPRO_NEW\images\train
+    ann_file: C:\Users\Kamil\PycharmProjects\transferLearning\GOPRO_NEW\labels\train.json
+    transforms:
+      type: Compose
+      ops: ~
+  shuffle: True
+  total_batch_size: 8
+  num_workers: 4
+  drop_last: True 
+
+
+val_dataloader:
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    img_folder: C:\Users\Kamil\PycharmProjects\transferLearning\GOPRO_NEW\images\val
+    ann_file: C:\Users\Kamil\PycharmProjects\transferLearning\GOPRO_NEW\labels\val.json
+    transforms:
+      type: Compose
+      ops: ~ 
+
+  shuffle: False
+  total_batch_size: 8
+  num_workers: 4
+  drop_last: False

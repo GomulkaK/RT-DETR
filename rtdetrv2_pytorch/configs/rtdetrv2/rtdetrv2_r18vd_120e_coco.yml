@@ -7,7 +7,7 @@ __include__: [
 ]
 
 
-output_dir: ./output/rtdetrv2_r18vd_120e_coco
+output_dir: ./output/rtdetrv2_r18vd_120e_coco_Limage
 
 
 PResNet:

@@ -98,6 +98,7 @@ class BatchImageCollateFuncion(BaseCollateFunction):
 
             sz = random.choice(self.scales)
             images = F.interpolate(images, size=sz)
+
             if 'masks' in targets[0]:
                 for tg in targets:
                     tg['masks'] = F.interpolate(tg['masks'], size=sz, mode='nearest')

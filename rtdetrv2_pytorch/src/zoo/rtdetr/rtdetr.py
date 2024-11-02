@@ -30,7 +30,11 @@ class RTDETR(nn.Module):
         self.encoder = encoder
         
     def forward(self, x, targets=None):
+
         x = self.backbone(x)
+        # import pdb
+        # pdb.set_trace()
+
         x = self.encoder(x)        
         x = self.decoder(x, targets)
 

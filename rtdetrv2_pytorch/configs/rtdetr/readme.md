@@ -36,7 +36,7 @@ rtdetr_r101vd | Objects365 | 640 | 36.8 | 48.3 | - | [url<sup>*</sup>](https://g
 
 Notes
 <!-- - AP is evaluated on coco 2017 val dataset -->
-<!-- RT-DETR was trained on COCO train2017 and evaluated on val2017. -->
+<!-- RT-DETR was trained on COCO train201 and evaluated on val2017. -->
 - `COCO + Objects365` in the table means finetuned model on `COCO` using pretrained weights trained on `Objects365`.
 - `FPS` is evaluated on a single T4 GPU with $batch\\_size = 1$ and $tensorrt\\_fp16$ mode
 - `url`<sup>`*`</sup> is the url of the pretrained weights, converted from the paddle model to save energy. *There may be slight differences between this table and the paper.

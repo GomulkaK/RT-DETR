@@ -3,7 +3,7 @@ num_classes: 80
 
 TrainDataset:
   name: COCODataSet
-  image_dir: train2017
+  image_dir: train201
   anno_path: annotations/instances_train2017.json
   dataset_dir: dataset/coco
   data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']

@@ -1,0 +1,37 @@
+
+use_amp: True
+use_ema: True 
+ema:
+  type: ModelEMA
+  decay: 0.9999
+  warmups: 2000
+
+
+epoches: 72
+clip_max_norm: 0.1
+
+
+optimizer:
+  type: SGD
+  params:
+    -
+      params: '^(?=.*backbone)(?!.*norm).*$'
+      lr: 0.00001
+      momentum: 0.9
+    -
+      params: '^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn)).*$'
+      weight_decay: 0.
+      momentum: 0.9
+
+  lr: 0.0001
+  momentum: 0.9
+  weight_decay: 0.0001
+
+lr_scheduler:
+  type: MultiStepLR
+  milestones: [15, 30, 40]
+  gamma: 0.1
+
+lr_warmup_scheduler:
+  type: LinearWarmup
+  warmup_duration: 1000  # Warm-up przez ~3.2 epoki

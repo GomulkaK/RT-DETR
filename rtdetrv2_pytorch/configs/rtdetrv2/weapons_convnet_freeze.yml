@@ -1,0 +1,33 @@
+__include__: [
+  '../dataset/coco_detection.yml',
+  '../runtime.yml',
+  './include/dataloader.yml',
+  './include/optimizer.yml',
+  './include/rtdetrv2_r50vd.yml',
+]
+
+
+
+
+output_dir: ./output/weapons_convnet
+
+RTDETR:
+  backbone: TorchVisionModel
+
+TorchVisionModel:
+    name: convnext_small
+    return_layers: ['2','4','6']
+    weights: DEFAULT
+    freeze_backbone: True
+
+
+HybridEncoder:
+  in_channels: [192, 384,768]
+  hidden_dim: 256
+  expansion: 0.5
+
+
+
+
+RTDETRTransformerv2:
+  num_layers

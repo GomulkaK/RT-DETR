@@ -132,3 +132,4 @@ If you use `RT-DETR` or `RTDETRv2` in your work, please use the following BibTeX
       url={https://arxiv.org/abs/2407.17140}, 
 }
 ```
+# RTDETRv2

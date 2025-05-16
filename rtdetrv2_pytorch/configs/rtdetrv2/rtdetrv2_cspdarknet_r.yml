@@ -1,0 +1,53 @@
+__include__: [
+  '../dataset/coco_detection.yml',
+  '../runtime.yml',
+  './include/dataloader.yml',
+  './include/optimizer.yml',
+  './include/rtdetrv2_r50vd.yml',
+]
+
+
+output_dir: ./output/rtdetrv2_CSPDarknet2
+
+
+RTDETR:
+  backbone: CSPDarkNet
+
+
+CSPDarkNet:
+  width_multi: 0.5
+  depth_multi: 0.5
+  return_idx: [2, 3, -1]
+
+
+HybridEncoder:
+  # intra
+  in_channels: [128, 256, 512]
+  hidden_dim: 256
+
+
+
+
+RTDETRTransformerv2:
+  num_layers: 3
+  num_points: [4, 4, 4]
+  cross_attn_method: discrete
+
+epoches: 36
+
+optimizer:
+  type: AdamW
+  params:
+    -
+      params: '^(?=.*(?:norm|bn)).*$'
+      weight_decay: 0.
+
+
+train_dataloader:
+  dataset:
+    transforms:
+      policy:
+        epoch: 33
+  collate_fn:
+    scales: ~
+
